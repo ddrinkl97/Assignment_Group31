@@ -40,6 +40,7 @@ namespace Assignment_Group31
                         if (result != null)
                         {
                             string type = result.ToString();
+                            Session["LoggedUser"] = username.Text;
 
                             // Redirect users based on their role stored in the database
                             if (type == "Student")

@@ -55,5 +55,10 @@ namespace Assignment_Group31
                 }
             }
         }
+
+        protected void btnAdminRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminRegister.aspx");
+        }
     }
 }

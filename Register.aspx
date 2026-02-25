@@ -51,5 +51,13 @@
         </div>
 
         <asp:Button ID="btnRegister" runat="server" Text="Create Account" OnClick="btnRegister_Click" />
+
+        <hr /> <p>Staff only:</p>
+        <asp:Button ID="btnAdminRegister" runat="server" 
+            Text="Create Admin Account" 
+            OnClick="btnAdminRegister_Click" 
+            CausesValidation="false" 
+            CssClass="admin-btn" />
     </div>
+
 </asp:Content>
