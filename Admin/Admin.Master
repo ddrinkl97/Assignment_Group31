@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs"
+    Inherits="Assignment_Group31.Admin_Master" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Admin - Math Leveling</title>
+    <link href="../FrontPageStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="admin-shell">
+            <aside class="admin-sidebar">
+                <div class="admin-brand">
+                    <h2>Math Leveling</h2>
+                    <p>Admin Panel</p>
+                </div>
+
+                <nav class="admin-nav">
+                    <a runat="server" href="~/Admin/AdminDashboard.aspx">Dashboard</a>
+                    <a runat="server" href="~/Admin/Users.aspx">Manage Users</a>
+                    <a runat="server" href="~/HiAdmin.aspx">Public Admin Page</a>
+                    <a runat="server" href="~/Login.aspx">Logout</a>
+                </nav>
+            </aside>
+
+            <main class="admin-main">
+                <header class="admin-topbar">
+                    <div>
+                        <h1>Admin Dashboard</h1>
+                        <p>Manage the Math Leveling system from one place.</p>
+                    </div>
+                </header>
+
+                <section class="admin-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </section>
+            </main>
+        </div>
+    </form>
+</body>
+</html>

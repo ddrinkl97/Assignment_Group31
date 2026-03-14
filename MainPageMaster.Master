@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title>Math Leveling</title>
-    <link href="Styles/Main.css" rel="stylesheet" type="text/css" />
+   <link href="FrontPageStyle.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -29,7 +29,8 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 Math Leveling - Supporting Elementary Mathematics [cite: 146]</p>
+<p>&copy; 2026 Math Leveling - Supporting Elementary Mathematics</p>
+
         </footer>
             
     </form>
