@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using BCrypt.Net;
 
 namespace Assignment_Group31
 {
@@ -22,49 +23,60 @@ namespace Assignment_Group31
 
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                // SQL query using your exact column names: username, password, usertype
-                string sql = "SELECT usertype FROM UserTable WHERE username = @username AND password = @password";
+                // fetch both the password and the usertype for the given username
+                string sql = "SELECT password, usertype FROM UserTable WHERE username = @username";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    // Mapping your IDs (username and password) to the SQL query
-                    cmd.Parameters.AddWithValue("@username", username.Text);
-                    cmd.Parameters.AddWithValue("@password", password.Text);
+                    cmd.Parameters.AddWithValue("@username", username.Text.Trim());
 
                     try
                     {
                         conn.Open();
-                        // ExecuteScalar is used because we only need to fetch one value (usertype)
-                        object result = cmd.ExecuteScalar();
+                        SqlDataReader reader = cmd.ExecuteReader();
 
-                        if (result != null)
+                        if (reader.Read()) // If the username exists
                         {
-                            string type = result.ToString();
-                            Session["LoggedUser"] = username.Text;
+                            string storedHash = reader["password"].ToString();
+                            string type = reader["usertype"].ToString();
 
-                            // Redirect users based on their role stored in the database
-                            if (type == "Student")
+                            // Verify the plain-text input against the stored hash
+                            bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(password.Text, storedHash);
+
+                            if (isPasswordCorrect)
                             {
-                                Response.Redirect("HiStudent.aspx");
+                                // Success. Setup Session and Redirect
+                                Session["LoggedUser"] = username.Text;
+                                Session["UserType"] = type; // Storing type in session
+
+                                if (type == "Student")
+                                {
+                                    Response.Redirect("HiStudent.aspx");
+                                }
+                                else if (type == "Teacher")
+                                {
+                                    Response.Redirect("HiTeacher.aspx");
+                                }
+                                else if (type == "Admin")
+                                {
+                                    Response.Redirect("HiAdmin.aspx");
+                                }
                             }
-                            else if (type == "Teacher")
+                            else
                             {
-                                Response.Redirect("HiTeacher.aspx");
-                            }
-                            else if (type == "Admin")
-                            {
-                                Response.Redirect("HiAdmin.aspx");
+                                // Password mismatch
+                                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid Username or Password!');", true);
                             }
                         }
                         else
                         {
-                            // If no match is found
-                            Response.Write("<script>alert('Invalid Username or Password!');</script>");
+                            // Username not found
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid Username or Password!');", true);
                         }
                     }
                     catch (Exception ex)
                     {
-                        Response.Write("Error: " + ex.Message);
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Error: " + ex.Message.Replace("'", "") + "');", true);
                     }
                 }
             }

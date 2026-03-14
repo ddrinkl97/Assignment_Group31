@@ -6,22 +6,28 @@
         <h2>Welcome Back!</h2>
         <p>Please log in to access your math activities.</p>
         
-        <div class="form-group">
-            <label>Username:</label>
-            <asp:TextBox ID="username" runat="server" CssClass="input-field"></asp:TextBox>
+        <div class="form-group" style="text-align: left;">
+            <label>Username</label>
+            <asp:TextBox ID="username" runat="server" CssClass="input-field" placeholder="Enter your username"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvUser" runat="server" ControlToValidate="username" 
-                ErrorMessage="Username is required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                ErrorMessage="Username is required!" ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RequiredFieldValidator>
         </div>
 
-        <div class="form-group">
-            <label>Password:</label>
-            <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="input-field"></asp:TextBox>
+        <div class="form-group" style="text-align: left;">
+            <label>Password</label>
+            <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="input-field" placeholder="••••••••"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvPass" runat="server" ControlToValidate="password" 
-                ErrorMessage="Password is required!" ForeColor="Red"></asp:RequiredFieldValidator>
+                ErrorMessage="Password is required!" ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RequiredFieldValidator>
         </div>
 
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-submit" />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="submit-btn" />
+
+        <p style="margin-top: 15px; font-size: 0.85rem;">
+            <a href="ForgotPassword.aspx" style="color: var(--text-secondary); text-decoration: none;">Forgot Password?</a>
+        </p>
         
-        <p>Don't have an account? <a href="Register.aspx">Register here</a></p>
+        <p style="margin-top: 20px; font-size: 0.9rem;">
+            Don't have an account? <a href="Register.aspx" style="color: var(--primary-color); font-weight: 600;">Register here</a>
+        </p>
     </div>
 </asp:Content>

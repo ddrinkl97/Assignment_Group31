@@ -13,5 +13,12 @@ namespace Assignment_Group31
         {
 
         }
+
+        protected void btnSendMessage_Click(object sender, EventArgs e)
+        {
+            // Simple popup to show it worked
+            string script = "alert('Thank you! Your message/request has been sent to our team.');";
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+        }
     }
 }

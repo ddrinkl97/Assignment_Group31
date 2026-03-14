@@ -13,5 +13,11 @@ namespace Assignment_Group31
         {
 
         }
+
+        protected void btnSendMessage_Click(object sender, EventArgs e)
+        {
+            // For now, just show a success alert
+            Response.Write("<script>alert('Thank you! Your message has been sent to Group 31.'); window.location='FrontPage.aspx';</script>");
+        }
     }
 }

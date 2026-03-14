@@ -4,34 +4,49 @@
 
 <html>
 <head runat="server">
-    <title>Math Leveling</title>
-    <link href="FrontPageStyle.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Leveling - Group 31</title>
+    
+    <link href="FrontPageStyle.css" rel="stylesheet" />
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
-            <nav class="navbar">
-                <div class="logo">Math Leveling</div>
+        
+        <nav id="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="Math Leveling logo no bg.png" alt="Logo" class="nav-logo-img" />
+                    <span>Math Leveling</span>
+                </div>
+                
                 <ul class="nav-links">
-                    <li><a href="FrontPage.aspx">Home</a></li>
-                    <li><a href="About.aspx">About Us</a></li>
-                    <li><a href="Contact.aspx">Contact</a></li>
-                    <li><a href="Login.aspx" class="login-btn">Login / Register</a></li>
+                    <li><a href="FrontPage.aspx#home">Home</a></li>
+                    <li><a href="FrontPage.aspx#about">About Us</a></li>
+                    <li><a href="FrontPage.aspx#features">How It Works</a></li>
+                    <li><a href="FrontPage.aspx#contact">Contact</a></li>
+                    
+                    <li><a href="Register.aspx" style="color: var(--secondary-color); font-weight: bold;">Register</a></li>
+                    <li><a href="Login.aspx" class="cta-button" style="padding: 0.5rem 1.5rem; margin-left: 10px;">Login</a></li>
                 </ul>
-            </nav>
-        </header>
+            </div>
+        </nav>
 
-        <main>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </main>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
 
-        <footer>
-            <p>&copy; 2026 Math Leveling - Supporting Elementary Mathematics [cite: 146]</p>
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Math Leveling. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">
+                    Group 31 WAPP
+                </p>
+            </div>
         </footer>
-            
+
     </form>
 </body>
 </html>

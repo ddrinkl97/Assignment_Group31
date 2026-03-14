@@ -24,15 +24,6 @@ namespace Assignment_Group31
         protected global::System.Web.UI.WebControls.TextBox firstname;
 
         /// <summary>
-        /// rfvFirst control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirst;
-
-        /// <summary>
         /// lastname control.
         /// </summary>
         /// <remarks>
@@ -42,15 +33,6 @@ namespace Assignment_Group31
         protected global::System.Web.UI.WebControls.TextBox lastname;
 
         /// <summary>
-        /// rfvLast control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLast;
-
-        /// <summary>
         /// email control.
         /// </summary>
         /// <remarks>
@@ -58,15 +40,6 @@ namespace Assignment_Group31
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox email;
-
-        /// <summary>
-        /// rfvEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
 
         /// <summary>
         /// gender control.
